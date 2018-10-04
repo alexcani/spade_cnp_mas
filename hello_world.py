@@ -59,7 +59,7 @@ class ReceiverAgent(Agent):
 
             print(self.presence.get_contacts())
 
-            #self.agent.stop()
+            self.agent.stop()
 
     def setup(self):
         print("Receiver agent started")
@@ -71,13 +71,13 @@ class ReceiverAgent(Agent):
 
 
 if __name__ == "__main__":
-    receiver = ReceiverAgent("receiver@localhost", "123")
-    receiver.start(auto_register=True)
-    time.sleep(2)
+    #receiver = ReceiverAgent("receiver@localhost", "123")
+    #receiver.start(auto_register=True)
+    #time.sleep(2)
     sender = SenderAgent("sender@localhost", "123")
     sender.start(auto_register=True)
 
-    while receiver.is_alive():
+    while sender.is_alive():
         try:
             time.sleep(1)
         except KeyboardInterrupt:
